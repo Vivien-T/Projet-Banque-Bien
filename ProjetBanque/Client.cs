@@ -8,5 +8,8 @@ namespace ProjetBanque
 {
     class Client
     {
+        private char nom;
+        private char prenom;
+        private char date;
     }
 }
