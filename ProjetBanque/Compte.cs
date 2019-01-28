@@ -8,9 +8,16 @@ namespace ProjetBanque
 {
     class Compte
     {
-        public int IdCompte;
+        private int id
+        public int Id
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
+
         public int libelle;
-        public char type;
+        private 
+        public string type;
         public double solde;
         public int decouvert;
     }
