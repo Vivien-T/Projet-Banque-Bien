@@ -8,7 +8,6 @@ namespace ProjetBanque
 {
     class Client
     {
-        //public int IdClient;
         private int id;
         public int Id
         {
@@ -75,7 +74,6 @@ namespace ProjetBanque
             get { return mail; }
             set { mail = value; }
         }
-
 
     }
 }
