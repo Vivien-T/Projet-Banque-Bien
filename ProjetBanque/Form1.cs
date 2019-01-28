@@ -15,6 +15,7 @@ namespace ProjetBanque
         public Form1()
         {
             InitializeComponent();
+            creerClient();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,4 +28,5 @@ namespace ProjetBanque
 
         }
     }
+
 }

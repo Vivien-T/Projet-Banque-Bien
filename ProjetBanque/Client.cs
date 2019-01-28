@@ -8,8 +8,13 @@ namespace ProjetBanque
 {
     class Client
     {
-        private char nom;
-        private char prenom;
-        private char date;
+    public int IdClient;
+        public string nom;
+        public string prenom;
+        public DateTime DateNaissance;
+        public string adresse;
+        public int telephone;
+        public string mail;
+
     }
 }
