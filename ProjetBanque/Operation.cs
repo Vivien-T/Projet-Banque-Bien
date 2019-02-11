@@ -8,10 +8,10 @@ namespace ProjetBanque
 {
     class Operation
     {
-        public int IdOperation;
-        public double date;
-        public double montant;
-        public int libelle;
-        public bool debit;
+        private int IdOperation;
+        private double date;
+        private double montant;
+        private int libelle;
+        private bool debit;
     }
 }
