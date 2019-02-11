@@ -44,8 +44,8 @@ namespace ProjetBanque
             set { adresse = value; }
         }
 
-        private Int32 codePostal;
-        public Int32 CodePostal
+        private int codePostal;
+        public int CodePostal
         {
             get { return codePostal; }
             set { codePostal = value; }
@@ -72,7 +72,7 @@ namespace ProjetBanque
             set { mail = value; }
         }
 
-        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, Int32 codePostal, string ville, string telephone, string mail)
+        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, int codePostal, string ville, string telephone, string mail)
         {
             this.id = id;
             this.nom = nom;

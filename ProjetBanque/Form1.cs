@@ -25,15 +25,16 @@ namespace ProjetBanque
 
         private void Bouton1_Click(object sender, EventArgs e)
         {
+            int id = 1;
             string nom = textBox1.Text;
             string prenom = textBox2.Text;
-            DateTime dateNaissance = dateTimePicker1;
+            DateTime dateNaissance = dateTimePicker1.Value;
             string adresse = textBox3.Text;
-            Int32 codePostal = Convert.ToInt32(textBox4.Text.Trim());
+            int codePostal = Convert.ToInt32(textBox4.Text.Trim());
             string ville = textBox5.Text;
             string telephone = textBox6.Text;
             string mail = textBox7.Text;
-            Client client = new Client(nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
+            Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
