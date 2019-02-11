@@ -16,5 +16,7 @@ namespace ProjetBanque
         public int telephone;
         public string mail;
 
+       
+
     }
 }

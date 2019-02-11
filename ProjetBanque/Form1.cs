@@ -24,7 +24,7 @@ namespace ProjetBanque
 
         private void Bouton1_Click(object sender, EventArgs e)
         {
-
+            nom = textBox1_TextChanged;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -43,6 +43,11 @@ namespace ProjetBanque
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
