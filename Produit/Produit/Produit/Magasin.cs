@@ -32,6 +32,16 @@ namespace ProjetBanque
                 if (produit.Id == id)
                     return produit;
             }
+            return null;
+        }
+
+        public void SupprimerProduit(int id)
+        {
+            Produit produit = RechercherProduit(id);
+            if (produit != null)
+            {
+                produits.Remove(produit);
+            }
         }
     }
 }
