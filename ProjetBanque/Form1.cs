@@ -15,6 +15,7 @@ namespace ProjetBanque
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,7 +25,15 @@ namespace ProjetBanque
 
         private void Bouton1_Click(object sender, EventArgs e)
         {
-            
+            string nom = textBox1.Text;
+            string prenom = textBox2.Text;
+            DateTime dateNaissance = dateTimePicker1;
+            string adresse = textBox3.Text;
+            Int32 codePostal = Convert.ToInt32(textBox4.Text.Trim());
+            string ville = textBox5.Text;
+            string telephone = textBox6.Text;
+            string mail = textBox7.Text;
+            Client client = new Client(nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
