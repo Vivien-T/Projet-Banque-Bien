@@ -9,10 +9,10 @@ namespace ProjetBanque
     class Compte
     {
         private int idcompte;
-        private int libelle;
+        private string libelle;
         private string type;
         private double solde;
-        private int decouvert;
+        private double decouvert;
 
         public int IdCompte
         {
@@ -20,7 +20,7 @@ namespace ProjetBanque
             set { idcompte = value; }
         }
 
-        public int Libelle
+        public string Libelle
         {
             get { return libelle; }
             set { libelle = value; }
@@ -38,10 +38,19 @@ namespace ProjetBanque
             set { solde = value; }
         }
 
-        public int Decouvert
+        public double Decouvert
         {
             get { return decouvert; }
             set { decouvert = value; }
+        }
+
+        public Compte(int idcompte, string libelle, string type, double solde, double decouvert)
+        {
+            this.idcompte = idcompte;
+            this.libelle = libelle;
+            this.type = type;
+            this.solde = solde;
+            this.decouvert = decouvert;
         }
     }
 }
