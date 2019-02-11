@@ -6,25 +6,31 @@ namespace Produit
     {
         static void Main(string[] args)
         {
-            Produit p1 = new Produit();
-            p1.Id = 1;
-            p1.Libelle = "produit 1";
+            Produit p1 = new Produit
+            {
+                Id = 1,
+                Libelle = "produit 1"
+            };
             Produit p2 = new Produit()
             {
                 IDisposable = 2,
                 Libelle = "Produit 2"
             };
 
-            magasin magasin = new Magasin();
-            magasin.AjouterProduit(p1);
-            magasin.AjouterProduit(p2);
-            magasin.AjouterProduit(new Produit()
+            magasin = new Magasin();
+            Magasin.AjouterProduit(p1);
+            Magasin.AjouterProduit(p2);
+            Magasin.AjouterProduit(new Produit()
             {
                 Id = 3,
                 Libelle = "Produit 3"
             });
 
-            magasin.AfficherProduits();
+            Magasin.AfficherProduits();
+            if (p1 != null)
+            {
+                p1.Libelle = "qsdfmlkj";
+            }
         }
     }
 }
