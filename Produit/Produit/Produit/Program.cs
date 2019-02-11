@@ -13,20 +13,20 @@ namespace Produit
             };
             Produit p2 = new Produit()
             {
-                IDisposable = 2,
+                Id = 2,
                 Libelle = "Produit 2"
             };
 
-            magasin = new Magasin();
-            Magasin.AjouterProduit(p1);
-            Magasin.AjouterProduit(p2);
-            Magasin.AjouterProduit(new Produit()
+            Magasin magasin = new Magasin();
+            magasin.AjouterProduit(p1);
+            magasin.AjouterProduit(p2);
+            magasin.AjouterProduit(new Produit()
             {
                 Id = 3,
                 Libelle = "Produit 3"
             });
 
-            Magasin.AfficherProduits();
+            magasin.AfficherProduit();
             if (p1 != null)
             {
                 p1.Libelle = "qsdfmlkj";
