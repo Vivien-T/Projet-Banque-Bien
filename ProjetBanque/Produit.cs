@@ -21,5 +21,10 @@ namespace ProjetBanque
 
         public string Libelle { get; set; }
         #endregion
+
+        public string Description
+        {
+            get { return string.Format("N°{0} - {1}", id, Libelle); }
+        }
     }
 }
