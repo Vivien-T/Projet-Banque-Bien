@@ -39,7 +39,9 @@ namespace ProjetBanque
         {
             Produit produit = RechercherProduit(id);
             if (produit != null)
+            {
                 produits.Remove(produit);
+            }
         }
     }
 }
