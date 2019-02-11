@@ -17,9 +17,21 @@ namespace ProjetBanque
             produits.Add(produit);
         }
 
+        public void AfficherProduit()
+        {
+            foreach(Produit produit in produits)
+            {
+                Console.WriteLine(produit.Description);
+            }
+        }
+
         public Produit RechercherProduit(int id)
         {
-
+            foreach (Produit produit in produits)
+            {
+                if (produit.Id == id)
+                    return produit;
+            }
         }
     }
 }
