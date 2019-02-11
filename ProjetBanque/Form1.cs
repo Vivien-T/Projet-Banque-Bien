@@ -49,7 +49,7 @@ namespace ProjetBanque
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            string Nom = Nom;
         }
     }
 
