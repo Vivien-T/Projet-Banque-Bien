@@ -13,9 +13,9 @@ namespace Produit
         #endregion
 
         #region Propiétés
-        public int ID
+        public int Id
         {
-            get { return ID; }
+            get { return Id; }
             set { id = value; }
         }
 
