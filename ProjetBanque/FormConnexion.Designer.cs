@@ -1,6 +1,6 @@
 ﻿namespace ProjetBanque
 {
-    partial class Form1
+    partial class FormConnexion
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Bouton1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConnexion));
+            this.btnValide = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -50,16 +50,16 @@
             this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Bouton1
+            // btnValide
             // 
-            this.Bouton1.AccessibleName = "";
-            this.Bouton1.Location = new System.Drawing.Point(519, 349);
-            this.Bouton1.Name = "Bouton1";
-            this.Bouton1.Size = new System.Drawing.Size(124, 31);
-            this.Bouton1.TabIndex = 0;
-            this.Bouton1.Text = "Valider";
-            this.Bouton1.UseVisualStyleBackColor = true;
-            this.Bouton1.Click += new System.EventHandler(this.Bouton1_Click);
+            this.btnValide.AccessibleName = "";
+            this.btnValide.Location = new System.Drawing.Point(519, 349);
+            this.btnValide.Name = "btnValide";
+            this.btnValide.Size = new System.Drawing.Size(124, 31);
+            this.btnValide.TabIndex = 0;
+            this.btnValide.Text = "Valider";
+            this.btnValide.UseVisualStyleBackColor = true;
+            this.btnValide.Click += new System.EventHandler(this.Bouton1_Click);
             // 
             // label1
             // 
@@ -216,8 +216,9 @@
             this.label10.Text = "Veuillez crée votre compte";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // Form1
+            // FormConnexion
             // 
+            this.AcceptButton = this.btnValide;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -240,9 +241,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Bouton1);
+            this.Controls.Add(this.btnValide);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "FormConnexion";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -252,7 +253,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Bouton1;
+        private System.Windows.Forms.Button btnValide;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;

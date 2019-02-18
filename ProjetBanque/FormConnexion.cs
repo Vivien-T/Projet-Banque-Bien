@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetBanque
 {
-    public partial class Form1 : Form
+    public partial class FormConnexion : Form
     {
-        public Form1()
+        public FormConnexion()
         {
             InitializeComponent();
             
@@ -36,23 +36,8 @@ namespace ProjetBanque
             string mail = textBox7.Text;
             Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
 
-            textBox1.Hide();
-            textBox2.Hide();
-            textBox3.Hide();
-            textBox4.Hide();
-            textBox5.Hide();
-            textBox6.Hide();
-            textBox7.Hide();
-            dateTimePicker1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label4.Hide();
-            label5.Hide();
-            label6.Hide();
-            label7.Hide();
-            label8.Hide();
-            label9.Hide();
 
+            this.DialogResult = DialogResult.OK;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
