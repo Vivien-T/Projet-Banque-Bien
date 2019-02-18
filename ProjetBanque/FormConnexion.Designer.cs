@@ -47,7 +47,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnValide
@@ -206,16 +205,6 @@
             this.textBox7.Size = new System.Drawing.Size(104, 20);
             this.textBox7.TabIndex = 17;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(377, 73);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Veuillez crée votre compte";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
             // FormConnexion
             // 
             this.AcceptButton = this.btnValide;
@@ -223,7 +212,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -271,7 +259,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label10;
     }
 }
 
