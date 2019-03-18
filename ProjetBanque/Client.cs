@@ -84,5 +84,10 @@ namespace ProjetBanque
             this.telephone = telephone;
             this.mail = mail;
         }
+
+        public Client()
+        {
+
+        }
     }
 }

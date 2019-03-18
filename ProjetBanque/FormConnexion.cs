@@ -23,7 +23,7 @@ namespace ProjetBanque
 
         }   
 
-        private void Bouton1_Click(object sender, EventArgs e)
+        public void Bouton1_Click(object sender, EventArgs e)
         {
             int id = 1;
             string nom = textBox1.Text;
@@ -38,6 +38,7 @@ namespace ProjetBanque
 
 
             this.DialogResult = DialogResult.OK;
+            Application.Run(new FormClient());
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
