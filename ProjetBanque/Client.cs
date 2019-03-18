@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetBanque
 {
-    class Client
+    public class Client
     {
         private int id;
         public int Id
@@ -88,11 +88,6 @@ namespace ProjetBanque
             this.ville = ville;
             this.telephone = telephone;
             this.mail = mail;
-        }
-
-        public Client()
-        {
-
         }
     }
 }

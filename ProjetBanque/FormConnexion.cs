@@ -22,7 +22,7 @@ namespace ProjetBanque
 
         }   
 
-        public void Bouton1_Click(object sender, EventArgs e)
+        public Client Bouton1_Click(object sender, EventArgs e)
         {
             int id = 1;
             string nom = textBox1.Text;
@@ -34,12 +34,26 @@ namespace ProjetBanque
             string telephone = textBox6.Text;
             string mail = textBox7.Text;
 
+            Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
             FormClient formClient = new FormClient(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
             if (formClient.ShowDialog() != DialogResult.OK)
             {
                 this.Close();
             }
             this.DialogResult = DialogResult.OK;
+            return client;
+        }
+
+        public Client Test()
+        {
+            Client client = Bouton1_Click();
+            return client;
+
+        }
+
+        private Client Bouton1_Click()
+        {
+            throw new NotImplementedException();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

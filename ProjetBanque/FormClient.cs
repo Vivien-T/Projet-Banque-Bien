@@ -23,7 +23,9 @@ namespace ProjetBanque
             TelClient_Write(telephone);
             DataNaissClient_Write(dateNaissance);
             CPClient_Write(codePostal);
+            AdresseClient_Write(adresse);
         }
+
 
         private void FormClient_Load(string text)
         {
@@ -85,5 +87,7 @@ namespace ProjetBanque
                 this.Close();
             }
         }
+
+        public 
     }
 }
