@@ -15,7 +15,6 @@ namespace ProjetBanque
         public FormConnexion()
         {
             InitializeComponent();
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,11 +33,13 @@ namespace ProjetBanque
             string ville = textBox5.Text;
             string telephone = textBox6.Text;
             string mail = textBox7.Text;
-            Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
 
-
+            FormClient formClient = new FormClient(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
+            if (formClient.ShowDialog() != DialogResult.OK)
+            {
+                this.Close();
+            }
             this.DialogResult = DialogResult.OK;
-            Application.Run(new FormClient());
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

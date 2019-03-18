@@ -15,6 +15,11 @@ namespace ProjetBanque
             set { id = value; }
         }
 
+        public int getId()
+        {
+            return id;
+        }
+
 
         private string nom;
         public string Nom
