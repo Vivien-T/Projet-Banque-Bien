@@ -23,5 +23,10 @@ namespace ProjetBanque
             if (formConnexion.ShowDialog() != DialogResult.OK)
                 this.Close();
         }
+
+        private void Texte_Acceuil_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

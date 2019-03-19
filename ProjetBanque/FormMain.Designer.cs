@@ -40,6 +40,7 @@
             this.Texte_Acceuil.Size = new System.Drawing.Size(102, 31);
             this.Texte_Acceuil.TabIndex = 0;
             this.Texte_Acceuil.Text = "Accueil";
+            this.Texte_Acceuil.Click += new System.EventHandler(this.Texte_Acceuil_Click);
             // 
             // FormMain
             // 
