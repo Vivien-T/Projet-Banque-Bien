@@ -8,86 +8,152 @@ namespace ProjetBanque
 {
     public class Client
     {
-        private int id;
-        public int Id
+        private int _id;
+        public void setId(int value)
         {
-            get { return id; }
-            set { id = value; }
+            _id = value;
         }
 
         public int getId()
         {
-            return id;
+            return _id;
         }
 
 
-        private string nom;
-        public string Nom
+
+
+        private string _nom;
+        public string getNom()
         {
-            get { return nom; }
-            set { nom = value; }
+            return _nom;
         }
 
-        private string prenom;
-        public string Prenom
+        public void setNom(string value)
         {
-            get { return prenom; }
-            set { prenom = value; }
+            _nom = value;
         }
 
-        private DateTime dateNaissance;
-        public DateTime DateNaissance
+
+
+
+        private string _prenom;
+        public string getPrenom()
         {
-            get { return dateNaissance; }
-            set { dateNaissance = value; }
+            return _prenom;
         }
 
-        private string adresse;
-        public string Adresse
+        public void setPrenom(string value)
         {
-            get { return adresse; }
-            set { adresse = value; }
+            _prenom = value;
         }
 
-        private int codePostal;
-        public int CodePostal
+
+
+
+
+        private DateTime _dateNaissance;
+        public DateTime getDateNaissance()
         {
-            get { return codePostal; }
-            set { codePostal = value; }
+            return _dateNaissance; 
         }
 
-        private string ville;
-        public string Ville
+        public void setDateNaissance(DateTime value)
         {
-            get { return ville; }
-            set { ville = value; }
+            _dateNaissance = value;
         }
 
-        private string telephone;
-        public string Telephone
+
+
+
+
+        private string _adresse;
+        public string getAdresse()
         {
-            get { return telephone; }
-            set { telephone = value; }
+            return _adresse;
         }
 
-        private string mail;
-        public string Mail
+        public void setAdresse(string value)
         {
-            get { return mail; }
-            set { mail = value; }
+            _adresse = value;
         }
 
-        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, int codePostal, string ville, string telephone, string mail)
+
+
+
+
+        private string _codePostal;
+        public string getCodePostal()
         {
-            this.id = id;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.dateNaissance = dateNaissance;
-            this.adresse = adresse;
-            this.codePostal = codePostal;
-            this.ville = ville;
-            this.telephone = telephone;
-            this.mail = mail;
+            return _codePostal;
+        }
+
+        public void setCodePostal(string value)
+        {
+            _codePostal = value;
+        }
+
+
+
+
+
+        private string _ville;
+        public string getVille()
+        {
+            return _ville;
+        }
+
+        public void setVille(string value)
+        {
+            _ville = value;
+        }
+
+
+
+
+
+        private string _telephone;
+        public string getTelephone()
+        {
+            return _telephone;
+        }
+
+        public void setTelephone(string value)
+        {
+            _telephone = value;
+        }
+
+
+
+
+
+        private string _mail;
+        public string getMail()
+        {
+            return _mail;
+        }
+
+        public void setMail(string value)
+        {
+            _mail = value;
+        }
+
+
+        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail)
+        {
+            _id = id;
+            _nom = nom;
+            _prenom = prenom;
+            _dateNaissance = dateNaissance;
+            _adresse = adresse;
+            _codePostal = codePostal;
+            _ville = ville;
+            _telephone = telephone;
+            _mail = mail;
+        }
+
+        public Client()
+        {
+
         }
     }
 }

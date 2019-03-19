@@ -12,16 +12,20 @@ namespace ProjetBanque
 {
     public partial class FormClient : Form
     {
-        public FormClient(int id, string nom, string prenom, DateTime dateNaissance, string adresse, int codePostal, string ville, string telephone, string mail)
+        public FormClient(int id, string nom, string prenom, DateTime datenaiss, string adresse, string cp, string ville, string telephone, string mail)
         {
+            RemplirClient(id, nom, prenom, datenaiss, adresse, cp, ville, telephone, mail);
             InitializeComponent();
-            Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
+        }
+
+        public void RemplirClient(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail)
+        {
             NomClient_Write(nom);
             PrenomClient_Write(prenom);
             VilleClient_Write(ville);
             MailClient_Write(mail);
             TelClient_Write(telephone);
-            DataNaissClient_Write(dateNaissance);
+            DateNaissClient_Write(dateNaissance);
             CPClient_Write(codePostal);
             AdresseClient_Write(adresse);
         }
@@ -32,54 +36,53 @@ namespace ProjetBanque
             
         }
 
-        private void NomClient_Write(string text)
+        public void NomClient_Write(string text)
         {
-            this.NomClient.Text = text;
+            NomClient.Text = text;
         }
 
-        private void PrenomClient_Write(string text)
+        public void PrenomClient_Write(string text)
         {
-            this.PrenomClient.Text = text;
+            PrenomClient.Text = text;
         }
 
-        private void VilleClient_Write(string text)
+        public void VilleClient_Write(string text)
         {
-            this.VilleClient.Text = text;
+            VilleClient.Text = text;
         }
 
-        private void TelClient_Write(string text)
+        public void TelClient_Write(string text)
         {
-            this.TelClient.Text = text;
+            TelClient.Text = text;
         }
 
-        private void MailClient_Write(string text)
+        public void MailClient_Write(string text)
         {
-            this.MailClient.Text = text;
+            MailClient.Text = text;
         }
 
-        private void DataNaissClient_Write(DateTime text)
+        public void DateNaissClient_Write(DateTime text)
         {
             string value = text.ToString();
-            this.DataNaissClient.Text = value;
+            DateNaissClient.Text = value;
         }
 
-        private void AdresseClient_Write(string text)
+        public void AdresseClient_Write(string text)
         {
-            this.AdresseClient.Text = text;
+            AdresseClient.Text = text;
         }
 
-        private void CPClient_Write(int text)
+        public void CPClient_Write(string text)
         {
-            string wow = text.ToString();
-            this.CPClient.Text = wow;
+            CPClient.Text = text;
         }
 
-        private void Valider_Click(object sender, EventArgs e)
+        public void Valider_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Retour_Click(object sender, EventArgs e)
+        public void Retour_Click(object sender, EventArgs e)
         {
             FormConnexion formConnexion = new FormConnexion();
             if (formConnexion.ShowDialog() != DialogResult.OK)
@@ -87,7 +90,5 @@ namespace ProjetBanque
                 this.Close();
             }
         }
-
-        public 
     }
 }

@@ -41,7 +41,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.NomClient = new System.Windows.Forms.Label();
             this.PrenomClient = new System.Windows.Forms.Label();
-            this.DataNaissClient = new System.Windows.Forms.Label();
+            this.DateNaissClient = new System.Windows.Forms.Label();
             this.AdresseClient = new System.Windows.Forms.Label();
             this.CPClient = new System.Windows.Forms.Label();
             this.VilleClient = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@
             // 
             // Valider
             // 
+            this.Valider.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Valider.Location = new System.Drawing.Point(520, 400);
             this.Valider.Name = "Valider";
             this.Valider.Size = new System.Drawing.Size(116, 38);
@@ -71,6 +72,7 @@
             // 
             // Retour
             // 
+            this.Retour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Retour.Location = new System.Drawing.Point(660, 400);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(116, 38);
@@ -156,72 +158,72 @@
             this.NomClient.AutoSize = true;
             this.NomClient.Location = new System.Drawing.Point(191, 74);
             this.NomClient.Name = "NomClient";
-            this.NomClient.Size = new System.Drawing.Size(45, 17);
+            this.NomClient.Size = new System.Drawing.Size(75, 17);
             this.NomClient.TabIndex = 12;
-            this.NomClient.Text = "nomcl";
+            this.NomClient.Text = "didn\'t work";
             // 
             // PrenomClient
             // 
             this.PrenomClient.AutoSize = true;
             this.PrenomClient.Location = new System.Drawing.Point(191, 123);
             this.PrenomClient.Name = "PrenomClient";
-            this.PrenomClient.Size = new System.Drawing.Size(28, 17);
+            this.PrenomClient.Size = new System.Drawing.Size(75, 17);
             this.PrenomClient.TabIndex = 13;
-            this.PrenomClient.Text = "rjnf";
+            this.PrenomClient.Text = "didn\'t work";
             // 
-            // DataNaissClient
+            // DateNaissClient
             // 
-            this.DataNaissClient.AutoSize = true;
-            this.DataNaissClient.Location = new System.Drawing.Point(191, 181);
-            this.DataNaissClient.Name = "DataNaissClient";
-            this.DataNaissClient.Size = new System.Drawing.Size(45, 17);
-            this.DataNaissClient.TabIndex = 14;
-            this.DataNaissClient.Text = "nomcl";
+            this.DateNaissClient.AutoSize = true;
+            this.DateNaissClient.Location = new System.Drawing.Point(191, 181);
+            this.DateNaissClient.Name = "DateNaissClient";
+            this.DateNaissClient.Size = new System.Drawing.Size(75, 17);
+            this.DateNaissClient.TabIndex = 14;
+            this.DateNaissClient.Text = "didn\'t work";
             // 
             // AdresseClient
             // 
             this.AdresseClient.AutoSize = true;
             this.AdresseClient.Location = new System.Drawing.Point(191, 233);
             this.AdresseClient.Name = "AdresseClient";
-            this.AdresseClient.Size = new System.Drawing.Size(45, 17);
+            this.AdresseClient.Size = new System.Drawing.Size(75, 17);
             this.AdresseClient.TabIndex = 15;
-            this.AdresseClient.Text = "nomcl";
+            this.AdresseClient.Text = "didn\'t work";
             // 
             // CPClient
             // 
             this.CPClient.AutoSize = true;
             this.CPClient.Location = new System.Drawing.Point(191, 279);
             this.CPClient.Name = "CPClient";
-            this.CPClient.Size = new System.Drawing.Size(45, 17);
+            this.CPClient.Size = new System.Drawing.Size(75, 17);
             this.CPClient.TabIndex = 16;
-            this.CPClient.Text = "nomcl";
+            this.CPClient.Text = "didn\'t work";
             // 
             // VilleClient
             // 
             this.VilleClient.AutoSize = true;
             this.VilleClient.Location = new System.Drawing.Point(517, 74);
             this.VilleClient.Name = "VilleClient";
-            this.VilleClient.Size = new System.Drawing.Size(38, 17);
+            this.VilleClient.Size = new System.Drawing.Size(75, 17);
             this.VilleClient.TabIndex = 18;
-            this.VilleClient.Text = "rfgrd";
+            this.VilleClient.Text = "didn\'t work";
             // 
             // TelClient
             // 
             this.TelClient.AutoSize = true;
             this.TelClient.Location = new System.Drawing.Point(517, 123);
             this.TelClient.Name = "TelClient";
-            this.TelClient.Size = new System.Drawing.Size(38, 17);
+            this.TelClient.Size = new System.Drawing.Size(75, 17);
             this.TelClient.TabIndex = 19;
-            this.TelClient.Text = "rfgrd";
+            this.TelClient.Text = "didn\'t work";
             // 
             // MailClient
             // 
             this.MailClient.AutoSize = true;
             this.MailClient.Location = new System.Drawing.Point(517, 181);
             this.MailClient.Name = "MailClient";
-            this.MailClient.Size = new System.Drawing.Size(38, 17);
+            this.MailClient.Size = new System.Drawing.Size(75, 17);
             this.MailClient.TabIndex = 20;
-            this.MailClient.Text = "rfgrd";
+            this.MailClient.Text = "didn\'t work";
             // 
             // FormClient
             // 
@@ -233,7 +235,7 @@
             this.Controls.Add(this.VilleClient);
             this.Controls.Add(this.CPClient);
             this.Controls.Add(this.AdresseClient);
-            this.Controls.Add(this.DataNaissClient);
+            this.Controls.Add(this.DateNaissClient);
             this.Controls.Add(this.PrenomClient);
             this.Controls.Add(this.NomClient);
             this.Controls.Add(this.label9);
@@ -248,7 +250,7 @@
             this.Controls.Add(this.Valider);
             this.Controls.Add(this.intro);
             this.Name = "FormClient";
-            this.Text = "Form1";
+            this.Text = "Page Client Compte";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +271,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label NomClient;
         private System.Windows.Forms.Label PrenomClient;
-        private System.Windows.Forms.Label DataNaissClient;
+        private System.Windows.Forms.Label DateNaissClient;
         private System.Windows.Forms.Label AdresseClient;
         private System.Windows.Forms.Label CPClient;
         private System.Windows.Forms.Label VilleClient;

@@ -12,75 +12,46 @@ namespace ProjetBanque
 {
     public partial class FormConnexion : Form
     {
+        public int open;
         public FormConnexion()
         {
             InitializeComponent();
+            open = 1;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-        }   
+        }
 
-        public Client Bouton1_Click(object sender, EventArgs e)
+        public Client GetClient()
+        {
+            Client client = niqueTino();
+            return client;
+        }
+
+        private void btnValide_Click(object sender, EventArgs e)
+        {
+            niqueTino();
+            open = 0;
+            this.Hide();
+        }
+        
+        private Client niqueTino()
         {
             int id = 1;
-            string nom = textBox1.Text;
-            string prenom = textBox2.Text;
+            string nom = Nom.Text;
+            string prenom = Prenom.Text;
             DateTime dateNaissance = dateTimePicker1.Value;
-            string adresse = textBox3.Text;
-            int codePostal = Convert.ToInt32(textBox4.Text.Trim());
-            string ville = textBox5.Text;
-            string telephone = textBox6.Text;
-            string mail = textBox7.Text;
+            string adresse = Adresse.Text;
+            string codePostal = CP.Text;
+            string ville = Ville.Text;
+            string telephone = Tel.Text;
+            string mail = Mail.Text;
 
             Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
-            FormClient formClient = new FormClient(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
-            if (formClient.ShowDialog() != DialogResult.OK)
-            {
-                this.Close();
-            }
-            this.DialogResult = DialogResult.OK;
             return client;
         }
-
-        public Client Test()
-        {
-            Client client = Bouton1_Click();
-            return client;
-
-        }
-
-        private Client Bouton1_Click()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 
 }

@@ -14,9 +14,10 @@ namespace ProjetBanque
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            Application app = new Application();
+            app.fonctionPrincipale();
         }
     }
 }
