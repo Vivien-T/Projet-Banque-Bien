@@ -18,8 +18,28 @@ namespace ProjetBanque
                 
             }
             Client client = formcrea.GetClient();
-            FormClient formulaire = new FormClient(client.getId(), client.getNom(), client.getPrenom(), client.getDateNaissance(), client.getAdresse(), client.getCodePostal(), client.getVille(), client.getTelephone(), client.getMail());
+            FormClient formulaire = new FormClient(client);
             formulaire.ShowDialog();
+            while(formulaire.open == 1)
+            {
+                if (formulaire.estOuvert())
+                {
+                    if(formulaire.open == 0)
+                    {
+                        formulaire.Close();
+                        formulaire = null;
+                        formcrea = new FormConnexion();
+                        formcrea.ShowDialog();
+                    }
+                    if (formulaire.open == 2)
+                    {
+                        formulaire.Close();
+                        formulaire = null;
+                        FormAccueil accueil = new FormAccueil(client);
+                        accueil.ShowDialog();
+                    }
+                }
+            }
 
         }
     }

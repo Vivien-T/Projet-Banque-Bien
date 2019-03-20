@@ -138,7 +138,25 @@ namespace ProjetBanque
         }
 
 
-        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail)
+
+
+
+        private int _solde;
+        public int getSolde()
+        {
+            return _solde;
+        }
+
+        public void setSolde(int value)
+        {
+            _solde = value;
+        }
+
+
+
+
+
+        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail, int solde)
         {
             _id = id;
             _nom = nom;
@@ -149,6 +167,7 @@ namespace ProjetBanque
             _ville = ville;
             _telephone = telephone;
             _mail = mail;
+            _solde = solde;
         }
 
         public Client()

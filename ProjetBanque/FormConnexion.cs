@@ -48,8 +48,9 @@ namespace ProjetBanque
             string ville = Ville.Text;
             string telephone = Tel.Text;
             string mail = Mail.Text;
+            int solde = 50;
 
-            Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail);
+            Client client = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail, solde);
             return client;
         }
     }

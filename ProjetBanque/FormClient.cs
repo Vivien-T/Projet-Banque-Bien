@@ -12,10 +12,12 @@ namespace ProjetBanque
 {
     public partial class FormClient : Form
     {
-        public FormClient(int id, string nom, string prenom, DateTime datenaiss, string adresse, string cp, string ville, string telephone, string mail)
+        public int open = 0;
+        public FormClient(Client client)
         {
-            RemplirClient(id, nom, prenom, datenaiss, adresse, cp, ville, telephone, mail);
             InitializeComponent();
+            open = 1;
+            RemplirClient(client.getId(), client.getNom(), client.getPrenom(), client.getDateNaissance(), client.getAdresse(), client.getCodePostal(), client.getVille(), client.getTelephone(), client.getMail());
         }
 
         public void RemplirClient(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail)
@@ -79,16 +81,32 @@ namespace ProjetBanque
 
         public void Valider_Click(object sender, EventArgs e)
         {
+            open = 2;
+            this.Close();
+            this.Hide();
+        }
 
+        public bool estOuvert()
+        {
+            if(open == 0)
+            {
+                return true;
+            }
+            else if(open == 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Retour_Click(object sender, EventArgs e)
         {
-            FormConnexion formConnexion = new FormConnexion();
-            if (formConnexion.ShowDialog() != DialogResult.OK)
-            {
-                this.Close();
-            }
+            open = 0;
+            this.Close();
+            this.Hide();
         }
     }
 }
