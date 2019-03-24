@@ -16,8 +16,7 @@ namespace ProjetBanque
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            Application app = new Application();
-            app.fonctionPrincipale();
+            System.Windows.Forms.Application.Run(new FormAccueil());
         }
     }
 }

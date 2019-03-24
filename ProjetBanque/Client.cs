@@ -156,7 +156,21 @@ namespace ProjetBanque
 
 
 
-        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail, int solde)
+        private string _mdp;
+        public string getMdp()
+        {
+            return _mdp;
+        }
+        public void setMdp(string value)
+        {
+            _mdp = value;
+        }
+
+
+
+
+
+        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail, int solde, string mdp)
         {
             _id = id;
             _nom = nom;
@@ -168,6 +182,7 @@ namespace ProjetBanque
             _telephone = telephone;
             _mail = mail;
             _solde = solde;
+            _mdp = mdp;
         }
 
         public Client()
