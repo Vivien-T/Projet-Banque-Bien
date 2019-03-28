@@ -15,7 +15,7 @@ namespace ProjetBanque
 
         public DateTime datetest;
         public Client test1;
-        public Client[] tabClients = { };
+        public List<Client> listeClients = new List<Client>();
         public int open = 0;
         public Client clientactuel = new Client();
         public FormAccueil()
@@ -23,16 +23,18 @@ namespace ProjetBanque
             datetest = new DateTime(2000, 04, 20);
             test1 = new Client(1, "test", "ostérone", datetest, "852 Avenue de test", "34000", "Montpellier", "0671973276", "test@google.fr", 50, "abcd");
             InitializeComponent();
-            tabClients[0] = test1;
+            listeClients.Add(test1);
         }
 
         private void FormAccueil_Load(object sender, EventArgs e)
         {
-            FormConnexion formclient = new FormConnexion();
-            formclient.ShowDialog();
-            clientactuel = formclient.GetClient();
-            message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
-            solde_Write(clientactuel.getSolde());
+            FormConnexion formclient = new FormConnexion(listeClients);
+            if (formclient.ShowDialog() == DialogResult.OK)
+            {
+                clientactuel = formclient.GetClient();
+                message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
+                solde_Write(clientactuel.getSolde());
+            }
         }
 
         public void solde_Write(int solde)

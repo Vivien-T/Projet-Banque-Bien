@@ -12,6 +12,7 @@ namespace ProjetBanque
 {
     public partial class FormConnexion : Form
     {
+        public List<Client> listeClients;
         private char[] tabcarspeciaux = {'!',':','/',';',',','§','.','?','>','<','*','µ','%','$','£','¤','&','"','#','{','('
             ,'[','-','|','`','_','\\','@',')',']','=','}','+','°'};
         public int open;
@@ -19,9 +20,10 @@ namespace ProjetBanque
         private char[] tabalphabet = {'a','z','e','r','t','y','u','i','o','p','q','s','d','f','g','h','j','k','l','m','w','x','c','v','b','n' };
         private FormAccueil mainform = new FormAccueil();
         public Client client = new Client();
-        public FormConnexion()
+        public FormConnexion(List<Client> listeClients)
         {
             InitializeComponent();
+            this.listeClients = listeClients;
             open = 1;
         }
 
@@ -36,7 +38,13 @@ namespace ProjetBanque
         }
         private void btnInscript_Click(object sender, EventArgs e)
         {
-            Inscription();
+            Client c = Inscription();
+            if (c != null)
+            {
+                client = c;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
         
         private Client Inscription()
@@ -60,12 +68,10 @@ namespace ProjetBanque
 
         public Client Connexion()
         {
-            for (int i = 0; i <= mainform.tabClients.Length; i++)
+            foreach (Client client in listeClients)
             {
-                Client clicli = mainform.tabClients[i];
-                if (TelConnect.Text == clicli.getTelephone() && MdpConnect.Text == clicli.getMdp())
+                if (TelConnect.Text == client.getTelephone() && MdpConnect.Text == client.getMdp())
                 {
-                    client = clicli;
                     return client;
                 }
             }
@@ -123,7 +129,13 @@ namespace ProjetBanque
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            Connexion();
+            Client c = Connexion();
+            if (c != null)
+            {
+                client = c;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 
