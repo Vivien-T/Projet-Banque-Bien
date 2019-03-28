@@ -6,30 +6,16 @@ using System.Threading.Tasks;
 
 namespace ProjetBanque
 {
-    class Compte
+    public abstract class Compte
     {
-        private int idcompte;
-        private string libelle;
-        private string type;
-        private double solde;
-        private double decouvert;
+        protected int idcompte;
+        protected double solde;
+        protected bool adecouvert;
 
         public int IdCompte
         {
             get { return idcompte; }
             set { idcompte = value; }
-        }
-
-        public string Libelle
-        {
-            get { return libelle; }
-            set { libelle = value; }
-        }
-
-        public string Type
-        {
-            get { return type; }
-            set { type = value; }
         }
 
         public double Solde
@@ -38,19 +24,21 @@ namespace ProjetBanque
             set { solde = value; }
         }
 
-        public double Decouvert
+        public bool ADecouvert
         {
-            get { return decouvert; }
-            set { decouvert = value; }
+            get { return adecouvert; }
+            set { adecouvert = value; }
         }
 
-        public Compte(int idcompte, string libelle, string type, double solde, double decouvert)
+        public Compte(int idcompte, bool adecouvert)
         {
             this.idcompte = idcompte;
-            this.libelle = libelle;
-            this.type = type;
-            this.solde = solde;
-            this.decouvert = decouvert;
+            this.adecouvert = adecouvert;
+        }
+
+        public Compte()
+        {
+
         }
     }
 }

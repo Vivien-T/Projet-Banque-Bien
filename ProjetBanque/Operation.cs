@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetBanque
 {
-    class Operation
+    public class Operation
     {
         private int idoperation;
         private DateTime date;

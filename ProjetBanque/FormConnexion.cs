@@ -13,17 +13,23 @@ namespace ProjetBanque
     public partial class FormConnexion : Form
     {
         public List<Client> listeClients;
-        private char[] tabcarspeciaux = {'!',':','/',';',',','§','.','?','>','<','*','µ','%','$','£','¤','&','"','#','{','('
-            ,'[','-','|','`','_','\\','@',')',']','=','}','+','°'};
+        public List<CompteCourant> listeComptes;
+        public List<LivretA> listeLivrets;
+        private string[] tabcarspeciaux = {"!",":","/",";",",","§",".","?",">","<","*","µ","%","$","£","¤","&","\"","#","{","("
+            ,"[","-","|","`","_","\\","@",")","]","=","}","+","°"};
         public int open;
-        private char[] tabnumeros = {'1','2','3','4','5','6','7','8','9','0'};
-        private char[] tabalphabet = {'a','z','e','r','t','y','u','i','o','p','q','s','d','f','g','h','j','k','l','m','w','x','c','v','b','n' };
+        private string[] tabnumeros = {"1","2","3","4","5","6","7","8","9","0"};
+        private string[] tabalphabet = {"a","z","e","r","t","y","u","i","o","p","q","s","d","f","g","h","j","k","l","m","w","x","c","v","b","n","é","è","à","ç","ù","ï","ê","î","â","û","ô","ä","ë","ü","ö"};
         private FormAccueil mainform = new FormAccueil();
         public Client client = new Client();
-        public FormConnexion(List<Client> listeClients)
+        public LivretA livret = new LivretA();
+        public CompteCourant compte = new CompteCourant();
+        public FormConnexion(List<Client> listeClients, List<CompteCourant> listecomptes, List<LivretA> listelivrets)
         {
             InitializeComponent();
             this.listeClients = listeClients;
+            this.listeComptes = listecomptes;
+            this.listeLivrets = listelivrets;
             open = 1;
         }
 
@@ -36,17 +42,97 @@ namespace ProjetBanque
         {
             return client;
         }
+
+        public List<LivretA> GetListeLivrets()
+        {
+            return listeLivrets;
+        }
+
+        public List<CompteCourant> GetlisteCompteCourant()
+        {
+            return listeComptes;
+        }
+
         private void btnInscript_Click(object sender, EventArgs e)
         {
-            Client c = Inscription();
-            if (c != null)
+            if (VerifInscription())
             {
-                client = c;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                Client c = Inscription();
+                livret = new LivretA(c.getId(), false, c.getNom(), c.getPrenom());
+                listeLivrets.Add(livret);
+                compte = new CompteCourant(c.getId(), false, c.getNom(), c.getPrenom());
+                listeComptes.Add(compte);
+                if (c != null)
+                {
+                    client = c;
+                    this.DialogResult = DialogResult.Yes;
+                    this.Close();
+                }
             }
         }
-        
+
+        private bool VerifInscription()
+        {
+            foreach(string carspecial in tabcarspeciaux)
+            {
+                if (Nom.Text.Contains(carspecial))
+                {
+                    return false;
+                }
+                if (Prenom.Text.Contains(carspecial))
+                {
+                    return false;
+                }
+                if (Adresse.Text.Contains(carspecial))
+                {
+                    return false;
+                }
+                if (CP.Text.Contains(carspecial))
+                {
+                    return false;
+                }
+                if (Ville.Text.Contains(carspecial))
+                {
+                    return false;
+                }
+                if (TelInscript.Text.Contains(carspecial))
+                {
+                    return false;
+                }
+            }
+            foreach(string numero in tabnumeros)
+            {
+                if (Nom.Text.Contains(numero))
+                {
+                    return false;
+                }
+                if (Prenom.Text.Contains(numero))
+                {
+                    return false;
+                }
+                if (Ville.Text.Contains(numero))
+                {
+                    return false;
+                }
+            }
+            foreach (string lettre in tabalphabet)
+            {
+                if (CP.Text.Contains(lettre))
+                {
+                    return false;
+                }
+                if (TelInscript.Text.Contains(lettre))
+                {
+                    return false;
+                }
+            }
+            if (Nom.Text.Length > 30 || Nom.Text.Length < 3 || Prenom.Text.Length > 20 || Prenom.Text.Length < 3 || Adresse.Text.Length < 15 || CP.Text.Length != 5 || Ville.Text.Length < 3 || 
+                TelInscript.Text.Length != 10)
+            {
+                return false;
+            }
+            return true;
+        }
         private Client Inscription()
         {
             int id = 1;
@@ -58,10 +144,9 @@ namespace ProjetBanque
             string ville = Ville.Text;
             string telephone = TelInscript.Text;
             string mail = Mail.Text;
-            int solde = 50;
             string mdp = MdpInscript.Text;
 
-            Client clicli = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail, solde, mdp);
+            Client clicli = new Client(id, nom, prenom, dateNaissance, adresse, codePostal, ville, telephone, mail, mdp);
             client = clicli;
             return client;
         }
@@ -133,6 +218,7 @@ namespace ProjetBanque
             if (c != null)
             {
                 client = c;
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banque.cs" />
+    <Compile Include="CompteCourant.cs" />
+    <Compile Include="LivretA.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Compte.cs" />
     <Compile Include="FormAccueil.cs">

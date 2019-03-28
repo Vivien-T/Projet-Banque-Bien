@@ -141,20 +141,6 @@ namespace ProjetBanque
 
 
 
-        private int _solde;
-        public int getSolde()
-        {
-            return _solde;
-        }
-
-        public void setSolde(int value)
-        {
-            _solde = value;
-        }
-
-
-
-
 
         private string _mdp;
         public string getMdp()
@@ -170,9 +156,8 @@ namespace ProjetBanque
 
 
 
-        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail, int solde, string mdp)
+        public Client(int id, string nom, string prenom, DateTime dateNaissance, string adresse, string codePostal, string ville, string telephone, string mail, string mdp)
         {
-            _id = id;
             _nom = nom;
             _prenom = prenom;
             _dateNaissance = dateNaissance;
@@ -181,8 +166,8 @@ namespace ProjetBanque
             _ville = ville;
             _telephone = telephone;
             _mail = mail;
-            _solde = solde;
             _mdp = mdp;
+            _id = id;
         }
 
         public Client()
