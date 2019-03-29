@@ -31,7 +31,6 @@ namespace ProjetBanque
                 listView1.Items.Add(clicli.getNom()+" "+clicli.getPrenom(), count);
                 count += 1;
             }
-            
         }
     }
 }
