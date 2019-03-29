@@ -117,13 +117,35 @@ namespace ProjetBanque
         private void send_Click(object sender, EventArgs e)
         {
             FormOperation operation = new FormOperation("send",comptecourantactuel, livretactuel, clientactuel);
-            operation.ShowDialog();
+            switch (operation.ShowDialog())
+            {
+                case DialogResult.Yes:
+                    comptecourantactuel = operation.GetCompte();
+                    soldecompte_Write(comptecourantactuel.Solde);
+                    break;
+
+                case DialogResult.OK:
+                    livretactuel = operation.GetLivret();
+                    soldelivret_Write(livretactuel.Solde);
+                    break;
+            }
         }
 
         private void ask_Click(object sender, EventArgs e)
         {
             FormOperation operation = new FormOperation("ask", comptecourantactuel, livretactuel, clientactuel);
-            operation.ShowDialog();
+            switch (operation.ShowDialog())
+            {
+                case DialogResult.Yes:
+                    comptecourantactuel = operation.GetCompte();
+                    soldecompte_Write(comptecourantactuel.Solde);
+                    break;
+
+                case DialogResult.OK:
+                    livretactuel = operation.GetLivret();
+                    soldelivret_Write(livretactuel.Solde);
+                    break;
+            }
         }
     }
 }

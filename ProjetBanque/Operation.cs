@@ -12,7 +12,6 @@ namespace ProjetBanque
         private DateTime date;
         private double montant;
         private string libelle;
-        private bool debit;
 
         public int IdOperation
         {
@@ -38,19 +37,12 @@ namespace ProjetBanque
             set { libelle = value; }
         }
 
-        public bool Debit
-        {
-            get { return debit; }
-            set { debit = value; }
-        }
-
-        public Operation(int idoperation, DateTime date, double montant, string libelle, bool debit)
+        public Operation(int idoperation, DateTime date, double montant, string libelle)
         {
             this.idoperation = idoperation;
             this.date = date;
             this.montant = montant;
             this.libelle = libelle;
-            this.debit = debit;
         }
     }
 }

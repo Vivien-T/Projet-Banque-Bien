@@ -16,6 +16,7 @@ namespace ProjetBanque
         private LivretA livretclient;
         private Client client;
         private int montant;
+        private Operation operation;
         private string typeoperation;
         public FormOperation(string type, CompteCourant compte, LivretA livret, Client cli)
         {
@@ -25,6 +26,27 @@ namespace ProjetBanque
             client = cli;
             typeoperation = type;
         }
+        public int GetMontant()
+        {
+            return montant;
+        }
+
+        public CompteCourant GetCompte()
+        {
+            return compteclient;
+        } 
+
+        public LivretA GetLivret()
+        {
+            return livretclient;
+        }
+
+        public Operation Getoperation()
+        {
+
+            return operation;
+        }
+
 
         private void ValidOperation_Click(object sender, EventArgs e)
         {
@@ -49,11 +71,35 @@ namespace ProjetBanque
                     if (MessageBox.Show( "Si vous validez cette opération, vous serez à découvert... Souhaitez-vous continuer ? ", "Attention !", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         compteclient.Solde = compteclient.Solde + montant;
+                        int id = 0;
+                        foreach (Operation op in compteclient.ListeOperations)
+                        {
+                            id += 1;
+                        }
+                        DateTime auj = DateTime.Today;
+                        operation = new Operation(id, auj, montant, "Operation du: " + auj + " et de: " + montant + "€ depuis le Compte courant de: "+ client.getNom() + " " + client.getPrenom());
+                        compteclient.ListeOperations.Add(operation);
+                        this.DialogResult = DialogResult.Yes;
+                        this.Close();
                     }
                     else if (MessageBox.Show("Si vous validez cette opération, vous serez à découvert... Souhaitez-vous continuer ? ", "Attention !", MessageBoxButtons.YesNo) == DialogResult.No)
                     {
                         this.Refresh();
                     }
+                }
+                else
+                {
+                    compteclient.Solde = compteclient.Solde + montant;
+                    int id = 0;
+                    foreach (Operation op in compteclient.ListeOperations)
+                    {
+                        id += 1;
+                    }
+                    DateTime auj = DateTime.Today;
+                    operation = new Operation(id, auj, montant, "Operation du: " + auj + " et de: " + montant + "€ depuis le Compte courant de: " + client.getNom() + " " + client.getPrenom());
+                    compteclient.ListeOperations.Add(operation);
+                    this.DialogResult = DialogResult.Yes;
+                    this.Close();
                 }
             }
             else if (livret.Checked)
@@ -66,6 +112,16 @@ namespace ProjetBanque
                 else
                 {
                     livretclient.Solde = livretclient.Solde + montant;
+                    int id = 0;
+                    foreach (Operation op in livretclient.ListeOperations)
+                    {
+                        id += 1;
+                    }
+                    DateTime auj = DateTime.Today;
+                    operation = new Operation(id, auj, montant, "Operation du: " + auj + " et de: " + montant + "€ depuis le Livret A de: " + client.getNom() + " " + client.getPrenom());
+                    livretclient.ListeOperations.Add(operation);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
             }
             else
