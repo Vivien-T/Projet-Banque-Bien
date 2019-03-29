@@ -21,7 +21,7 @@ namespace ProjetBanque
         private string[] tabnumeros = {"1","2","3","4","5","6","7","8","9","0"};
         private string[] tabalphabet = {"a","z","e","r","t","y","u","i","o","p","q","s","d","f","g","h","j","k","l","m","w","x","c","v","b","n","é","è","à","ç","ù","ï","ê","î","â","û","ô","ä","ë","ü","ö"};
         private FormAccueil mainform;
-        public Client client = new Client();
+        public Client client;
         public LivretA livret = new LivretA();
         public CompteCourant compte = new CompteCourant();
         public FormConnexion(List<Client> listeClients, List<CompteCourant> listecomptes, List<LivretA> listelivrets, FormAccueil formprec)
@@ -227,7 +227,6 @@ namespace ProjetBanque
             if (c != null)
             {
                 client = c;
-
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -170,9 +170,11 @@ namespace ProjetBanque
             _id = id;
         }
 
-        public Client()
+        public Client(int id, string telephone, string mdp)
         {
-
+            _id = id;
+            _telephone = telephone;
+            _mdp = mdp;
         }
     }
 }
