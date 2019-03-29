@@ -55,6 +55,7 @@
             this.MdpConnect = new System.Windows.Forms.TextBox();
             this.TelConnect = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
+            this.ErrorMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnInscript
@@ -241,7 +242,7 @@
             // MdpInscript
             // 
             this.MdpInscript.Location = new System.Drawing.Point(158, 340);
-            this.MdpInscript.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MdpInscript.Margin = new System.Windows.Forms.Padding(2);
             this.MdpInscript.Name = "MdpInscript";
             this.MdpInscript.PasswordChar = '•';
             this.MdpInscript.Size = new System.Drawing.Size(104, 20);
@@ -250,7 +251,7 @@
             // MdpConnect
             // 
             this.MdpConnect.Location = new System.Drawing.Point(614, 115);
-            this.MdpConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MdpConnect.Margin = new System.Windows.Forms.Padding(2);
             this.MdpConnect.Name = "MdpConnect";
             this.MdpConnect.PasswordChar = '•';
             this.MdpConnect.Size = new System.Drawing.Size(97, 20);
@@ -259,7 +260,7 @@
             // TelConnect
             // 
             this.TelConnect.Location = new System.Drawing.Point(614, 66);
-            this.TelConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TelConnect.Margin = new System.Windows.Forms.Padding(2);
             this.TelConnect.Name = "TelConnect";
             this.TelConnect.Size = new System.Drawing.Size(97, 20);
             this.TelConnect.TabIndex = 23;
@@ -267,13 +268,23 @@
             // btnConnect
             // 
             this.btnConnect.Location = new System.Drawing.Point(538, 182);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(124, 31);
             this.btnConnect.TabIndex = 24;
             this.btnConnect.Text = "Se Connecter";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // ErrorMsg
+            // 
+            this.ErrorMsg.AutoSize = true;
+            this.ErrorMsg.BackColor = System.Drawing.SystemColors.Window;
+            this.ErrorMsg.ForeColor = System.Drawing.Color.Red;
+            this.ErrorMsg.Location = new System.Drawing.Point(275, 405);
+            this.ErrorMsg.Name = "ErrorMsg";
+            this.ErrorMsg.Size = new System.Drawing.Size(0, 13);
+            this.ErrorMsg.TabIndex = 25;
             // 
             // FormConnexion
             // 
@@ -282,6 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ErrorMsg);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.TelConnect);
             this.Controls.Add(this.MdpConnect);
@@ -344,6 +356,7 @@
         private System.Windows.Forms.TextBox MdpConnect;
         private System.Windows.Forms.TextBox TelConnect;
         private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Label ErrorMsg;
     }
 }
 

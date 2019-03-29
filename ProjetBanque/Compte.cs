@@ -11,6 +11,13 @@ namespace ProjetBanque
         protected int idcompte;
         protected double solde;
         protected bool adecouvert;
+        protected List<Operation> listeoperations = new List<Operation>();
+
+        public List<Operation> ListeOperations
+        {
+            get { return listeoperations; }
+            set { listeoperations = value; }
+        }
 
         public int IdCompte
         {

@@ -20,17 +20,17 @@ namespace ProjetBanque
         public int open;
         private string[] tabnumeros = {"1","2","3","4","5","6","7","8","9","0"};
         private string[] tabalphabet = {"a","z","e","r","t","y","u","i","o","p","q","s","d","f","g","h","j","k","l","m","w","x","c","v","b","n","é","è","à","ç","ù","ï","ê","î","â","û","ô","ä","ë","ü","ö"};
-        private FormAccueil mainform = new FormAccueil();
+        private FormAccueil mainform;
         public Client client = new Client();
         public LivretA livret = new LivretA();
         public CompteCourant compte = new CompteCourant();
-        public FormConnexion(List<Client> listeClients, List<CompteCourant> listecomptes, List<LivretA> listelivrets)
+        public FormConnexion(List<Client> listeClients, List<CompteCourant> listecomptes, List<LivretA> listelivrets, FormAccueil formprec)
         {
             InitializeComponent();
             this.listeClients = listeClients;
             this.listeComptes = listecomptes;
             this.listeLivrets = listelivrets;
-            open = 1;
+            mainform = formprec;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -68,6 +68,10 @@ namespace ProjetBanque
                     this.DialogResult = DialogResult.Yes;
                     this.Close();
                 }
+            }
+            else
+            {
+                ErrorMsg_Write();
             }
         }
 
@@ -135,7 +139,12 @@ namespace ProjetBanque
         }
         private Client Inscription()
         {
-            int id = 1;
+            int compteur = 0;
+            foreach(Client client in listeClients)
+            {
+                compteur += 1;
+            }
+            int id = compteur;
             string nom = Nom.Text;
             string prenom = Prenom.Text;
             DateTime dateNaissance = dateTimePicker1.Value;
@@ -222,6 +231,11 @@ namespace ProjetBanque
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void ErrorMsg_Write()
+        {
+            this.ErrorMsg.Text = "Erreur Veuillez remplir tous les champs correctement !";
         }
     }
 

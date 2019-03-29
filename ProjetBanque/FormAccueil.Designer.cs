@@ -52,23 +52,25 @@
             // 
             this.send.Cursor = System.Windows.Forms.Cursors.Hand;
             this.send.Location = new System.Drawing.Point(411, 335);
-            this.send.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.send.Margin = new System.Windows.Forms.Padding(2);
             this.send.Name = "send";
             this.send.Size = new System.Drawing.Size(90, 80);
             this.send.TabIndex = 1;
             this.send.Text = "Envoyer de l\'argent";
             this.send.UseVisualStyleBackColor = true;
+            this.send.Click += new System.EventHandler(this.send_Click);
             // 
             // ask
             // 
             this.ask.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ask.Location = new System.Drawing.Point(563, 335);
-            this.ask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ask.Margin = new System.Windows.Forms.Padding(2);
             this.ask.Name = "ask";
             this.ask.Size = new System.Drawing.Size(90, 80);
             this.ask.TabIndex = 2;
             this.ask.Text = "Demander de l\'argent";
             this.ask.UseVisualStyleBackColor = true;
+            this.ask.Click += new System.EventHandler(this.ask_Click);
             // 
             // soldecomptemsg
             // 
@@ -128,7 +130,7 @@
             this.Controls.Add(this.ask);
             this.Controls.Add(this.send);
             this.Controls.Add(this.message_accueil);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAccueil";
             this.Text = "Accueil";
             this.Load += new System.EventHandler(this.FormAccueil_Load);
