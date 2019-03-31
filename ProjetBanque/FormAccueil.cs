@@ -35,11 +35,35 @@ namespace ProjetBanque
             test1livret = new LivretA(1, false, test1.getNom(), test1.getPrenom());
             test1compte = new CompteCourant(1, false, test1.getNom(), test1.getNom());
             listeClients.Add(test1);
-            listeClients.Add(new Client(2, "amphé", "tamine", datetest, "48 rue de l'essai", "34000", "Montpellier", "0659086850", "damn@boy.fr", "password"));
-            listeClients.Add(new Client(3, "damn", "boy", datetest, "73 boulevard des tests", "34000", "Montpellier", "0649634829", "lucasPD@vivienBG.fr", "password"));
-            listeClients.Add(new Client(2, "whatthefuck", "bro", datetest, "95 Impasse des Cons", "34000", "Montpellier", "0659364852", "tinoPD@vivienBG.fr", "password"));
+
+            Client test2 = new Client(2, "amphé", "tamine", datetest, "48 rue de l'essai", "34000", "Montpellier", "0659086850", "damn@boy.fr", "password");
+            LivretA test2livret = new LivretA(1, false, test2.getNom(), test2.getPrenom());
+            CompteCourant test2compte = new CompteCourant(1, false, test2.getNom(), test2.getNom());
+
+            Client test3 = new Client(3, "damn", "boy", datetest, "73 boulevard des tests", "34000", "Montpellier", "0649634829", "lucasPD@vivienBG.fr", "password");
+            LivretA test3livret = new LivretA(1, false, test3.getNom(), test3.getPrenom());
+            CompteCourant test3compte = new CompteCourant(1, false, test3.getNom(), test3.getNom());
+
+            Client test4 = new Client(2, "whatthefuck", "bro", datetest, "95 Impasse des Cons", "34000", "Montpellier", "0659364852", "tinoPD@vivienBG.fr", "password");
+            LivretA test4livret = new LivretA(1, false, test4.getNom(), test4.getPrenom());
+            CompteCourant test4compte = new CompteCourant(1, false, test4.getNom(), test4.getNom());
+
+            listeClients.Add(test2);
+            listeClients.Add(test3);
+            listeClients.Add(test4);
+
             listeComptes.Add(test1compte);
             listeLivrets.Add(test1livret);
+
+            listeComptes.Add(test2compte);
+            listeLivrets.Add(test2livret);
+
+            listeComptes.Add(test3compte);
+            listeLivrets.Add(test3livret);
+
+            listeComptes.Add(test4compte);
+            listeLivrets.Add(test4livret);
+
             InitializeComponent();
         }
 
@@ -54,6 +78,23 @@ namespace ProjetBanque
                     {
                         Formgestion formgest = new Formgestion(listeClients, listeComptes, listeLivrets);
                         formgest.ShowDialog();
+                        message_accueil_Write("admin","admin");
+                        double soldetotal = 0;
+                        foreach(CompteCourant compte in listeComptes)
+                        {
+                            soldetotal = soldetotal + compte.Solde;
+                        }
+                        soldecompte_Write(soldetotal);
+                        soldetotal = 0;
+                        foreach(LivretA livret in listeLivrets)
+                        {
+                            soldetotal = soldetotal + livret.Solde;
+                        }
+                        soldelivret_Write(soldetotal);
+                        this.soldecomptemsg.Text = "Voici la somme présente sur tous \n les comptes en euros";
+                        this.soldelivretmsg.Text = "Voici la somme présente sur tous \n les livrets en euros";
+                        this.send.Hide();
+                        this.ask.Hide();
                         break;
                     }
                     else if (clientactuel == null)
@@ -79,6 +120,7 @@ namespace ProjetBanque
                             }
                         }
                         message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
+                        this.gestion.Hide();
                         break;
                     }
                 case DialogResult.Yes:
@@ -106,6 +148,7 @@ namespace ProjetBanque
                         }
                     }
                     message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
+                    this.gestion.Hide();
                     break;
             }
             
@@ -119,7 +162,14 @@ namespace ProjetBanque
 
         public void message_accueil_Write(string nom, string prenom)
         {
-            this.message_accueil.Text = ("Bonjour Mr. "+ nom +" "+ prenom + " !");
+            if(nom == "admin" && prenom == "admin")
+            {
+                this.message_accueil.Text = ("Bienvenue sur la page de gestion Administrateur");
+            }
+            else
+            {
+                this.message_accueil.Text = ("Bonjour Mr. " + nom + " " + prenom + " !");
+            }
         }
 
         private void soldelivret_Write(double solde)
@@ -160,6 +210,12 @@ namespace ProjetBanque
                     soldelivret_Write(livretactuel.Solde);
                     break;
             }
+        }
+
+        private void gestion_Click(object sender, EventArgs e)
+        {
+            Formgestion gestion = new Formgestion(listeClients, listeComptes, listeLivrets);
+            gestion.ShowDialog();
         }
     }
 }

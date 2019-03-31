@@ -35,6 +35,7 @@
             this.soldecompte = new System.Windows.Forms.Label();
             this.soldelivretmsg = new System.Windows.Forms.Label();
             this.soldelivret = new System.Windows.Forms.Label();
+            this.gestion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // message_accueil
@@ -118,11 +119,22 @@
             this.soldelivret.TabIndex = 6;
             this.soldelivret.Text = "[solde]";
             // 
+            // gestion
+            // 
+            this.gestion.Location = new System.Drawing.Point(137, 338);
+            this.gestion.Name = "gestion";
+            this.gestion.Size = new System.Drawing.Size(258, 75);
+            this.gestion.TabIndex = 7;
+            this.gestion.Text = "Gestion des clients";
+            this.gestion.UseVisualStyleBackColor = true;
+            this.gestion.Click += new System.EventHandler(this.gestion_Click);
+            // 
             // FormAccueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 477);
+            this.Controls.Add(this.gestion);
             this.Controls.Add(this.soldelivret);
             this.Controls.Add(this.soldelivretmsg);
             this.Controls.Add(this.soldecompte);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.Label soldecompte;
         private System.Windows.Forms.Label soldelivretmsg;
         private System.Windows.Forms.Label soldelivret;
+        private System.Windows.Forms.Button gestion;
     }
 }

@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
+            this.listClients = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(259, 55);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(459, 321);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -51,13 +42,21 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Veuillez sélectionner le client \r\nque vous souhaitez gérer :";
             // 
+            // listClients
+            // 
+            this.listClients.FormattingEnabled = true;
+            this.listClients.Location = new System.Drawing.Point(336, 55);
+            this.listClients.Name = "listClients";
+            this.listClients.Size = new System.Drawing.Size(409, 355);
+            this.listClients.TabIndex = 2;
+            // 
             // Formgestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listClients);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
             this.Name = "Formgestion";
             this.Text = "Gestion";
             this.Load += new System.EventHandler(this.Formgestion_Load);
@@ -67,8 +66,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listClients;
     }
 }

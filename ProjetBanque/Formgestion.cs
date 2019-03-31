@@ -25,11 +25,9 @@ namespace ProjetBanque
 
         private void Formgestion_Load(object sender, EventArgs e)
         {
-            int count = 0;
             foreach(Client clicli in listeclients)
             {
-                listView1.Items.Add(clicli.getNom()+" "+clicli.getPrenom(), count);
-                count += 1;
+                listClients.Items.Add(clicli.getNom()+" "+clicli.getPrenom());
             }
         }
     }
