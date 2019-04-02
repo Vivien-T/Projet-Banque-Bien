@@ -54,6 +54,12 @@
     <Compile Include="Formgestion.Designer.cs">
       <DependentUpon>Formgestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGestionDuClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionDuClient.Designer.cs">
+      <DependentUpon>FormGestionDuClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOperation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formgestion.resx">
       <DependentUpon>Formgestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestionDuClient.resx">
+      <DependentUpon>FormGestionDuClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOperation.resx">
       <DependentUpon>FormOperation.cs</DependentUpon>

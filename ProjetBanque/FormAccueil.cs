@@ -215,7 +215,14 @@ namespace ProjetBanque
         private void gestion_Click(object sender, EventArgs e)
         {
             Formgestion gestion = new Formgestion(listeClients, listeComptes, listeLivrets);
-            gestion.ShowDialog();
+            switch (gestion.ShowDialog())
+            {
+                case DialogResult.Abort:
+                    listeClients = gestion.GetListeClients();
+                    listeComptes = gestion.GetListeComptes();
+                    listeLivrets = gestion.GetListelivrets();
+                    break;
+            }
         }
     }
 }
