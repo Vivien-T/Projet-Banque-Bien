@@ -71,7 +71,7 @@ namespace ProjetBanque
             {
                 foreach (string stri in tabcarspeciaux)
                 {
-                    if (this.argcompte.Text.Contains(str) || this.arglivret.Text.Contains(stri))
+                    if (argcompte.Text.Contains(str) || arglivret.Text.Contains(stri)|| arglivret.Text.Contains(str)|| argcompte.Text.Contains(stri))
                     {
                         ok = 1;
                     }
@@ -102,23 +102,35 @@ namespace ProjetBanque
                 comptecli.Solde = soldeco;
                 livretcli.Solde = soldeli;
 
+
+                CompteCourant toDel = null;
                 foreach (CompteCourant compte in listecomptes)
                 {
                     if(compte.IdCompte == comptecli.IdCompte)
                     {
-                        listecomptes.Remove(compte);
+                        toDel = compte;
                     }
                 }
-                listecomptes.Add(comptecli);
+                if (toDel != null)
+                {
+                    listecomptes.Remove(toDel);
+                    listecomptes.Add(comptecli);
+                }
 
+                LivretA toDele = null;
                 foreach(LivretA livret in listelivrets)
                 {
                     if(livret.IdCompte == livretcli.IdCompte)
                     {
-                        listelivrets.Remove(livret);
+                        toDele = livret;
                     }
                 }
-                listelivrets.Add(livretcli);
+                if(toDele != null)
+                {
+                    listelivrets.Remove(toDele);
+                    listelivrets.Add(livretcli);
+                }
+                
             }
             this.DialogResult = DialogResult.Yes;
             this.Close();
@@ -143,28 +155,45 @@ namespace ProjetBanque
         {
             if(MessageBox.Show("Etes-vous sûr de couloir supprimer le client ? Cette action est irréversible !", "Attention !", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                CompteCourant toDel = null;
                 foreach(CompteCourant compte in listecomptes)
                 {
                     if(clientactuel.getId() == compte.IdCompte)
                     {
-                        listecomptes.Remove(compte);
+                        toDel = compte;
                     }
                 }
-                
+                if(toDel != null)
+                {
+                    listecomptes.Remove(toDel);
+                }
+
+
+                LivretA toDele = null;
                 foreach(LivretA livret in listelivrets)
                 {
                     if (clientactuel.getId() == livret.IdCompte)
                     {
-                        listelivrets.Remove(livret);
+                        toDele = livret;
                     }
                 }
-                
+                if(toDele != null)
+                {
+                    listelivrets.Remove(toDele);
+                }
+
+
+                Client toDelet = null;
                 foreach(Client clicli in listeclients)
                 {
                     if(clicli == clientactuel)
                     {
-                        listeclients.Remove(clicli);
+                        toDelet = clicli;
                     }
+                }
+                if(toDelet != null)
+                {
+                    listeclients.Remove(toDelet);
                 }
             }
             this.DialogResult = DialogResult.None;

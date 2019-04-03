@@ -95,6 +95,7 @@ namespace ProjetBanque
                         this.soldelivretmsg.Text = "Voici la somme présente sur tous \n les livrets en euros";
                         this.send.Hide();
                         this.ask.Hide();
+                        this.gestion.Show();
                         break;
                     }
                     else if (clientactuel == null)
@@ -121,6 +122,8 @@ namespace ProjetBanque
                         }
                         message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
                         this.gestion.Hide();
+                        this.ask.Show();
+                        this.send.Show();
                         break;
                     }
                 case DialogResult.Yes:
@@ -149,6 +152,8 @@ namespace ProjetBanque
                     }
                     message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
                     this.gestion.Hide();
+                    this.send.Show();
+                    this.ask.Show();
                     break;
             }
             
@@ -222,6 +227,95 @@ namespace ProjetBanque
                     listeComptes = gestion.GetListeComptes();
                     listeLivrets = gestion.GetListelivrets();
                     break;
+            }
+        }
+
+        private void disconnect_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Etes-vous sûr de vouloir vous déconnecter ?","Attention",MessageBoxButtons.YesNo)== DialogResult.Yes)
+            {
+                FormConnexion formclient = new FormConnexion(listeClients, listeComptes, listeLivrets, this);
+                switch (formclient.ShowDialog())
+                {
+                    case DialogResult.OK:
+                        clientactuel = formclient.GetClient();
+                        if (clientactuel.getTelephone() == "admin")
+                        {
+                            Formgestion formgest = new Formgestion(listeClients, listeComptes, listeLivrets);
+                            formgest.ShowDialog();
+                            message_accueil_Write("admin", "admin");
+                            double soldetotal = 0;
+                            foreach (CompteCourant compte in listeComptes)
+                            {
+                                soldetotal = soldetotal + compte.Solde;
+                            }
+                            soldecompte_Write(soldetotal);
+                            soldetotal = 0;
+                            foreach (LivretA livret in listeLivrets)
+                            {
+                                soldetotal = soldetotal + livret.Solde;
+                            }
+                            soldelivret_Write(soldetotal);
+                            this.soldecomptemsg.Text = "Voici la somme présente sur tous \n les comptes en euros";
+                            this.soldelivretmsg.Text = "Voici la somme présente sur tous \n les livrets en euros";
+                            this.send.Hide();
+                            this.ask.Hide();
+                            break;
+                        }
+                        else if (clientactuel == null)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            foreach (CompteCourant compte in listeComptes)
+                            {
+                                if (compte.IdCompte == clientactuel.getId())
+                                {
+                                    soldecompte_Write(compte.Solde);
+                                    comptecourantactuel = compte;
+                                }
+                            }
+                            foreach (LivretA livret in listeLivrets)
+                            {
+                                if (livret.IdCompte == clientactuel.getId())
+                                {
+                                    soldelivret_Write(livret.Solde);
+                                    livretactuel = livret;
+                                }
+                            }
+                            message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
+                            this.gestion.Hide();
+                            break;
+                        }
+                    case DialogResult.Yes:
+                        clientactuel = formclient.GetClient();
+                        if (clientactuel == null)
+                        {
+                            break;
+                        }
+                        listeComptes = formclient.GetlisteCompteCourant();
+                        listeLivrets = formclient.GetListeLivrets();
+                        foreach (CompteCourant compte in listeComptes)
+                        {
+                            if (compte.IdCompte == clientactuel.getId())
+                            {
+                                soldecompte_Write(compte.Solde);
+                                comptecourantactuel = compte;
+                            }
+                        }
+                        foreach (LivretA livret in listeLivrets)
+                        {
+                            if (livret.IdCompte == clientactuel.getId())
+                            {
+                                soldelivret_Write(livret.Solde);
+                                livretactuel = livret;
+                            }
+                        }
+                        message_accueil_Write(clientactuel.getNom(), clientactuel.getPrenom());
+                        this.gestion.Hide();
+                        break;
+                }
             }
         }
     }

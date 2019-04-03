@@ -36,6 +36,7 @@
             this.soldelivretmsg = new System.Windows.Forms.Label();
             this.soldelivret = new System.Windows.Forms.Label();
             this.gestion = new System.Windows.Forms.Button();
+            this.disconnect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // message_accueil
@@ -129,11 +130,22 @@
             this.gestion.UseVisualStyleBackColor = true;
             this.gestion.Click += new System.EventHandler(this.gestion_Click);
             // 
+            // disconnect
+            // 
+            this.disconnect.Location = new System.Drawing.Point(12, 441);
+            this.disconnect.Name = "disconnect";
+            this.disconnect.Size = new System.Drawing.Size(94, 33);
+            this.disconnect.TabIndex = 8;
+            this.disconnect.Text = "Se déconnecter";
+            this.disconnect.UseVisualStyleBackColor = true;
+            this.disconnect.Click += new System.EventHandler(this.disconnect_Click);
+            // 
             // FormAccueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 477);
+            this.Controls.Add(this.disconnect);
             this.Controls.Add(this.gestion);
             this.Controls.Add(this.soldelivret);
             this.Controls.Add(this.soldelivretmsg);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.Label soldelivretmsg;
         private System.Windows.Forms.Label soldelivret;
         private System.Windows.Forms.Button gestion;
+        private System.Windows.Forms.Button disconnect;
     }
 }
