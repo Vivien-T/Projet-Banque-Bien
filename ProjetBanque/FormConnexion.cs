@@ -65,6 +65,7 @@ namespace ProjetBanque
                 if (c != null)
                 {
                     client = c;
+                    listeClients.Add(c);
                     this.DialogResult = DialogResult.Yes;
                     this.Close();
                 }

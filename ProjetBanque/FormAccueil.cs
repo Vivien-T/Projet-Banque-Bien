@@ -126,6 +126,7 @@ namespace ProjetBanque
                         this.send.Show();
                         break;
                     }
+
                 case DialogResult.Yes:
                     clientactuel = formclient.GetClient();
                     if (clientactuel == null)
@@ -134,6 +135,7 @@ namespace ProjetBanque
                     }
                     listeComptes = formclient.GetlisteCompteCourant();
                     listeLivrets = formclient.GetListeLivrets();
+
                     foreach (CompteCourant compte in listeComptes)
                     {
                         if (compte.IdCompte == clientactuel.getId())
